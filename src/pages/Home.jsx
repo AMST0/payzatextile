@@ -97,9 +97,10 @@ function Home() {
             <section className="hero">
                 <div className="hero__video">
                     <iframe
-                        src="https://player.vimeo.com/video/1108826568?h=37630d6219&background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&transparent=1&dnt=1"
+                        src="https://player.vimeo.com/video/1108826568?h=37630d6219&background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&playsinline=1&dnt=1"
                         frameBorder="0"
                         allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
                         title="Hero Background"
                         loading="eager"
                         data-preload="true"
@@ -214,12 +215,12 @@ function Home() {
             <section className="video-section" ref={el => videoRefs.current[0] = el}>
                 <div className="video-section__video">
                     <iframe
-                        src="https://player.vimeo.com/video/1136411580?autoplay=0&loop=1&muted=1&title=0&byline=0&portrait=0&dnt=1"
+                        src="https://player.vimeo.com/video/1136411580?background=1&autoplay=1&loop=1&muted=1&playsinline=1&title=0&byline=0&portrait=0&dnt=1"
                         frameBorder="0"
                         allow="autoplay; fullscreen"
+                        allowFullScreen
                         title="Production Video"
-                        loading="eager"
-                        data-preload="true"
+                        loading="lazy"
                     ></iframe>
                 </div>
                 <div className="video-section__overlay">
@@ -324,12 +325,12 @@ function Home() {
             <section className="video-section video-section--alt" ref={el => videoRefs.current[1] = el}>
                 <div className="video-section__video">
                     <iframe
-                        src="https://player.vimeo.com/video/1124425639?autoplay=0&loop=1&muted=1&title=0&byline=0&portrait=0&dnt=1"
+                        src="https://player.vimeo.com/video/1124425639?background=1&autoplay=1&loop=1&muted=1&playsinline=1&title=0&byline=0&portrait=0&dnt=1"
                         frameBorder="0"
                         allow="autoplay; fullscreen"
+                        allowFullScreen
                         title="Quality Control Video"
-                        loading="eager"
-                        data-preload="true"
+                        loading="lazy"
                     ></iframe>
                 </div>
                 <div className="video-section__overlay video-section__overlay--right">

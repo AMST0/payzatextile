@@ -7,7 +7,7 @@ function SplashScreen() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(false)
-        }, 1200) // 1.2 seconds for animation + delay
+        }, 3500) // 3.5 seconds for animation + video loading
 
         return () => clearTimeout(timer)
     }, [])

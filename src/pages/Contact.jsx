@@ -13,6 +13,7 @@ function Contact() {
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitted, setSubmitted] = useState(false)
+    const [error, setError] = useState(null)
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -22,9 +23,28 @@ function Contact() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsSubmitting(true)
-        await new Promise(resolve => setTimeout(resolve, 1500))
-        setIsSubmitting(false)
-        setSubmitted(true)
+        setError(null)
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+
+            if (!response.ok) {
+                throw new Error('Failed to send message')
+            }
+
+            setSubmitted(true)
+        } catch (err) {
+            console.error('Form submission error:', err)
+            setError('There was an error sending your message. Please try again or contact us directly.')
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
@@ -68,6 +88,7 @@ function Contact() {
                                                 id="name"
                                                 name="name"
                                                 className="form-input"
+                                                placeholder="Enter your name"
                                                 required
                                                 value={formData.name}
                                                 onChange={handleChange}
@@ -80,6 +101,7 @@ function Contact() {
                                                 id="email"
                                                 name="email"
                                                 className="form-input"
+                                                placeholder="your@email.com"
                                                 required
                                                 value={formData.email}
                                                 onChange={handleChange}
@@ -95,6 +117,7 @@ function Contact() {
                                                 id="company"
                                                 name="company"
                                                 className="form-input"
+                                                placeholder="Your company name"
                                                 value={formData.company}
                                                 onChange={handleChange}
                                             />
@@ -106,6 +129,7 @@ function Contact() {
                                                 id="phone"
                                                 name="phone"
                                                 className="form-input"
+                                                placeholder="+1 234 567 8900"
                                                 value={formData.phone}
                                                 onChange={handleChange}
                                             />
@@ -154,12 +178,26 @@ function Contact() {
                                             id="message"
                                             name="message"
                                             className="form-textarea"
+                                            placeholder="Tell us about your project requirements, quantities, and timeline..."
                                             required
                                             value={formData.message}
                                             onChange={handleChange}
                                             rows="5"
                                         ></textarea>
                                     </div>
+
+                                    {error && (
+                                        <div className="form-error" style={{
+                                            padding: '1rem',
+                                            marginBottom: '1rem',
+                                            background: 'rgba(220, 38, 38, 0.1)',
+                                            border: '1px solid rgba(220, 38, 38, 0.3)',
+                                            borderRadius: '8px',
+                                            color: '#dc2626'
+                                        }}>
+                                            {error}
+                                        </div>
+                                    )}
 
                                     <button
                                         type="submit"
@@ -259,10 +297,10 @@ function Contact() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Map Section */}
-            <section className="map-section">
+            < section className="map-section" >
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.5!2d28.95!3d41.04!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAyJzI0LjAiTiAyOMKwNTcnMDAuMCJF!5e0!3m2!1sen!2str!4v1600000000000!5m2!1sen!2str"
                     width="100%"
@@ -272,7 +310,7 @@ function Contact() {
                     loading="lazy"
                     title="Location"
                 ></iframe>
-            </section>
+            </section >
         </>
     )
 }

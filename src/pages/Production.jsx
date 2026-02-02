@@ -60,10 +60,12 @@ function Production() {
                         <span className="section-tag">Production Excellence</span>
                         <h2>Craftsmanship in Action</h2>
                         <p>Experience the precision and care that goes into every shirt we produce.</p>
-                        <a href="https://vimeo.com/1136411580" target="_blank" rel="noopener noreferrer" className="video-play-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
+                        <a href="https://vimeo.com/1136411580" target="_blank" rel="noopener noreferrer" className="video-play-link">
+                            <div className="play-button">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
                             <span>Watch Video</span>
                         </a>
                     </div>
@@ -95,13 +97,13 @@ function Production() {
             <section className="prod-gallery">
                 <div className="prod-gallery__grid">
                     <div className="prod-gallery__item reveal-scale reveal-delay-1">
-                        <img src="/images/_F4A9473-Edit.jpg" alt="Detail work" loading="lazy" />
+                        <img src="/images/_F4A7431.jpg" alt="Detail work" loading="lazy" />
                     </div>
                     <div className="prod-gallery__item reveal-scale reveal-delay-2">
-                        <img src="/images/_F4A8536-Edit.jpg" alt="Final product" loading="lazy" />
+                        <img src="/images/_F4A9064-Edit (1).jpg" alt="Fabric quality" loading="lazy" />
                     </div>
                     <div className="prod-gallery__item reveal-scale reveal-delay-3">
-                        <img src="/images/_F4A7867.jpg" alt="Fabric check" loading="lazy" />
+                        <img src="/images/_F4A9558-Edit (1).jpg" alt="Premium finish" loading="lazy" />
                     </div>
                 </div>
             </section>
@@ -116,10 +118,12 @@ function Production() {
                         <span className="section-tag">Quality Standards</span>
                         <h2>From Fabric to Finish</h2>
                         <p>See our rigorous quality control process that ensures international standards.</p>
-                        <a href="https://vimeo.com/1124425639" target="_blank" rel="noopener noreferrer" className="video-play-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
+                        <a href="https://vimeo.com/1124425639" target="_blank" rel="noopener noreferrer" className="video-play-link">
+                            <div className="play-button">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
                             <span>Watch Video</span>
                         </a>
                     </div>

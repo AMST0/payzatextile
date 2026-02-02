@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
+import useScrollReveal from '../hooks/useScrollReveal'
 import './Production.css'
 
 function Production() {
+    useScrollReveal()
     const processSteps = [
         {
             number: '01',
@@ -54,7 +56,7 @@ function Production() {
                     <img src="/images/_F4A8225-Edit.jpg" alt="Manufacturing" loading="lazy" />
                 </div>
                 <div className="prod-video__overlay">
-                    <div className="prod-video__content">
+                    <div className="prod-video__content reveal-left">
                         <span className="section-tag">Production Excellence</span>
                         <h2>Craftsmanship in Action</h2>
                         <p>Experience the precision and care that goes into every shirt we produce.</p>
@@ -71,7 +73,7 @@ function Production() {
             {/* Process Section */}
             <section className="prod-process">
                 <div className="container">
-                    <div className="section-header">
+                    <div className="section-header reveal">
                         <span className="section-tag">The Process</span>
                         <h2>From Fabric to Fashion</h2>
                         <p>Every shirt passes through our refined production stages - ensuring consistent quality and exceptional craftsmanship.</p>
@@ -79,7 +81,7 @@ function Production() {
 
                     <div className="prod-process__grid">
                         {processSteps.map((step, index) => (
-                            <div key={index} className="process-card">
+                            <div key={index} className={`process-card reveal reveal-delay-${(index % 3) + 1}`}>
                                 <span className="process-card__number">{step.number}</span>
                                 <h3>{step.title}</h3>
                                 <p>{step.description}</p>
@@ -92,14 +94,14 @@ function Production() {
             {/* Image Gallery */}
             <section className="prod-gallery">
                 <div className="prod-gallery__grid">
-                    <div className="prod-gallery__item">
+                    <div className="prod-gallery__item reveal-scale reveal-delay-1">
                         <img src="/images/_F4A9473-Edit.jpg" alt="Detail work" loading="lazy" />
                     </div>
-                    <div className="prod-gallery__item">
-                        <img src="/images/_F4A9558-Edit (1).jpg" alt="Shirt finishing" loading="lazy" />
+                    <div className="prod-gallery__item reveal-scale reveal-delay-2">
+                        <img src="/images/_F4A8536-Edit.jpg" alt="Final product" loading="lazy" />
                     </div>
-                    <div className="prod-gallery__item prod-gallery__item--wide">
-                        <img src="/images/_F4A9843 (1).jpg" alt="Final product" loading="lazy" />
+                    <div className="prod-gallery__item reveal-scale reveal-delay-3">
+                        <img src="/images/_F4A7867.jpg" alt="Fabric check" loading="lazy" />
                     </div>
                 </div>
             </section>

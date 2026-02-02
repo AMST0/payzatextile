@@ -1,10 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import useScrollReveal from '../hooks/useScrollReveal'
 import './Home.css'
 
 function Home() {
     const [openFAQ, setOpenFAQ] = useState(null)
     const videoRefs = useRef([])
+
+    // Scroll reveal animations
+    useScrollReveal()
 
     // Intersection Observer for video autoplay on scroll
     useEffect(() => {
@@ -102,7 +106,7 @@ function Home() {
             <section id="intro" className="intro">
                 <div className="container">
                     <div className="intro__grid">
-                        <div className="intro__content">
+                        <div className="intro__content reveal-left">
                             <span className="section-tag">Our Expertise</span>
                             <h2>Precision-Crafted Shirts Globally Trusted</h2>
                             <p>
@@ -111,7 +115,7 @@ function Home() {
                             </p>
                             <Link to="/about" className="btn btn-dark">About Us</Link>
                         </div>
-                        <div className="intro__image">
+                        <div className="intro__image reveal-right">
                             <img src="/images/_F4A8992-Edit.jpg" alt="Premium shirt craftsmanship" loading="lazy" />
                         </div>
                     </div>
@@ -121,12 +125,12 @@ function Home() {
             {/* WHAT WE DO BEST */}
             <section className="features">
                 <div className="container">
-                    <div className="section-header">
+                    <div className="section-header reveal">
                         <span className="section-tag">Why Choose Us</span>
                         <h2>What We Do Best</h2>
                     </div>
                     <div className="features__grid">
-                        <div className="feature-card">
+                        <div className="feature-card reveal reveal-delay-1">
                             <div className="feature-card__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                     <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -135,7 +139,7 @@ function Home() {
                             <h3>Quantity-Based Discounts</h3>
                             <p>Competitive pricing that scales with your order volume</p>
                         </div>
-                        <div className="feature-card">
+                        <div className="feature-card reveal reveal-delay-2">
                             <div className="feature-card__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -144,7 +148,7 @@ function Home() {
                             <h3>International Quality Tests</h3>
                             <p>Shrinkage and durability tests meeting global standards</p>
                         </div>
-                        <div className="feature-card">
+                        <div className="feature-card reveal reveal-delay-3">
                             <div className="feature-card__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                     <path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
@@ -153,7 +157,7 @@ function Home() {
                             <h3>Premium Collar Detailing</h3>
                             <p>Expert stitching and collar craftsmanship</p>
                         </div>
-                        <div className="feature-card">
+                        <div className="feature-card reveal reveal-delay-4">
                             <div className="feature-card__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                     <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -162,7 +166,7 @@ function Home() {
                             <h3>3 Specialized Brands</h3>
                             <p>Boucheron, Loranzo, and Payza for every market</p>
                         </div>
-                        <div className="feature-card">
+                        <div className="feature-card reveal reveal-delay-5">
                             <div className="feature-card__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                     <path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
@@ -171,7 +175,7 @@ function Home() {
                             <h3>Custom Labels and Packaging</h3>
                             <p>Complete branding solutions with your identity</p>
                         </div>
-                        <div className="feature-card">
+                        <div className="feature-card reveal reveal-delay-6">
                             <div className="feature-card__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                     <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -268,22 +272,22 @@ function Home() {
             {/* IMAGE GALLERY */}
             <section className="gallery">
                 <div className="gallery__grid">
-                    <div className="gallery__item">
+                    <div className="gallery__item reveal-scale reveal-delay-1">
                         <img src="/images/_F4A7431.jpg" alt="Shirt detail" loading="lazy" />
                     </div>
-                    <div className="gallery__item">
+                    <div className="gallery__item reveal-scale reveal-delay-2">
                         <img src="/images/_F4A9064-Edit (1).jpg" alt="Fabric texture" loading="lazy" />
                     </div>
-                    <div className="gallery__item">
+                    <div className="gallery__item reveal-scale reveal-delay-3">
                         <img src="/images/_F4A8225-Edit.jpg" alt="Collar detail" loading="lazy" />
                     </div>
-                    <div className="gallery__item">
+                    <div className="gallery__item reveal-scale reveal-delay-4">
                         <img src="/images/_F4A9473-Edit.jpg" alt="Button detail" loading="lazy" />
                     </div>
-                    <div className="gallery__item">
+                    <div className="gallery__item reveal-scale reveal-delay-5">
                         <img src="/images/_F4A8536-Edit.jpg" alt="Premium shirt" loading="lazy" />
                     </div>
-                    <div className="gallery__item">
+                    <div className="gallery__item reveal-scale reveal-delay-6">
                         <img src="/images/_F4A9843 (1).jpg" alt="Full shirt" loading="lazy" />
                     </div>
                 </div>

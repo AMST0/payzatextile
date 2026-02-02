@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
+import useScrollReveal from '../hooks/useScrollReveal'
 import './About.css'
 
 function About() {
+    useScrollReveal()
+
     return (
         <>
             {/* Hero Section */}
@@ -19,7 +22,7 @@ function About() {
             <section className="about-intro">
                 <div className="container">
                     <div className="about-intro__grid">
-                        <div className="about-intro__content">
+                        <div className="about-intro__content reveal-left">
                             <span className="section-tag">Who We Are</span>
                             <h2>Crafting Excellence Since 2004</h2>
                             <p>
@@ -35,7 +38,7 @@ function About() {
                                 global reputation.
                             </p>
                         </div>
-                        <div className="about-intro__image">
+                        <div className="about-intro__image reveal-right">
                             <img src="/images/_F4A9064-Edit (1).jpg" alt="Shirt craftsmanship" loading="lazy" />
                         </div>
                     </div>
@@ -45,38 +48,38 @@ function About() {
             {/* What We Do Section */}
             <section className="what-we-do">
                 <div className="container">
-                    <div className="section-header">
+                    <div className="section-header reveal">
                         <span className="section-tag">What We Do Best</span>
                         <h2>Manufacturing Confidence</h2>
                     </div>
 
                     <div className="what-we-do__grid">
-                        <div className="feature-item">
+                        <div className="feature-item reveal reveal-delay-1">
                             <div className="feature-item__number">01</div>
                             <h3>Quantity-Based Discount System</h3>
                             <p>Flexible pricing tiers that scale with your order volume.</p>
                         </div>
-                        <div className="feature-item">
+                        <div className="feature-item reveal reveal-delay-2">
                             <div className="feature-item__number">02</div>
                             <h3>International Quality Standards</h3>
                             <p>Shrinkage and durability tests meeting global requirements.</p>
                         </div>
-                        <div className="feature-item">
+                        <div className="feature-item reveal reveal-delay-3">
                             <div className="feature-item__number">03</div>
                             <h3>Premium Collar and Stitch Detailing</h3>
                             <p>Meticulous attention to every construction detail.</p>
                         </div>
-                        <div className="feature-item">
+                        <div className="feature-item reveal reveal-delay-4">
                             <div className="feature-item__number">04</div>
                             <h3>3 Specialized Brands</h3>
                             <p>Boucheron, Loranzo, and Payza for target markets.</p>
                         </div>
-                        <div className="feature-item">
+                        <div className="feature-item reveal reveal-delay-5">
                             <div className="feature-item__number">05</div>
                             <h3>Custom Labels and Packaging</h3>
                             <p>Complete branding solutions for your market.</p>
                         </div>
-                        <div className="feature-item">
+                        <div className="feature-item reveal reveal-delay-6">
                             <div className="feature-item__number">06</div>
                             <h3>On-Time Delivery Guarantee</h3>
                             <p>4-6 weeks production with transparent timelines.</p>
@@ -101,7 +104,7 @@ function About() {
             <section className="vision-mission">
                 <div className="container">
                     <div className="vision-mission__grid">
-                        <div className="vision-card">
+                        <div className="vision-card reveal-left">
                             <span className="section-tag">Our Vision</span>
                             <h3>Leading Through Excellence</h3>
                             <p>
@@ -111,7 +114,7 @@ function About() {
                                 quality not just a standard, but a lasting habit.
                             </p>
                         </div>
-                        <div className="mission-card">
+                        <div className="mission-card reveal-right">
                             <span className="section-tag">Our Mission</span>
                             <h3>Partnership Through Trust</h3>
                             <p>

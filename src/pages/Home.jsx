@@ -268,20 +268,23 @@ function Home() {
             {/* IMAGE GALLERY */}
             <section className="gallery">
                 <div className="gallery__grid">
-                    <div className="gallery__item gallery__item--large">
+                    <div className="gallery__item">
                         <img src="/images/_F4A7431.jpg" alt="Shirt detail" loading="lazy" />
                     </div>
                     <div className="gallery__item">
                         <img src="/images/_F4A9064-Edit (1).jpg" alt="Fabric texture" loading="lazy" />
                     </div>
                     <div className="gallery__item">
-                        <img src="/images/_F4A9348-2-Edit.jpg" alt="Collar detail" loading="lazy" />
+                        <img src="/images/_F4A8225-Edit.jpg" alt="Collar detail" loading="lazy" />
                     </div>
                     <div className="gallery__item">
                         <img src="/images/_F4A9473-Edit.jpg" alt="Button detail" loading="lazy" />
                     </div>
-                    <div className="gallery__item gallery__item--large">
-                        <img src="/images/_F4A9558-Edit (1).jpg" alt="Full shirt" loading="lazy" />
+                    <div className="gallery__item">
+                        <img src="/images/_F4A8536-Edit.jpg" alt="Premium shirt" loading="lazy" />
+                    </div>
+                    <div className="gallery__item">
+                        <img src="/images/_F4A9843 (1).jpg" alt="Full shirt" loading="lazy" />
                     </div>
                 </div>
             </section>

@@ -1,13 +1,20 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/t/payzatextile/:path*",
-      "destination": "/t/payzatextile/:path*"
+      "destination": "/:path*",
+      "permanent": false
     },
     {
       "source": "/t/payzatextile",
-      "destination": "/t/payzatextile/index.html"
+      "destination": "/",
+      "permanent": false
     }
   ],
-  "trailingSlash": false
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
 }

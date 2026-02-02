@@ -4,10 +4,15 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './styles/index.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </React.StrictMode>,
-)
+// Redirect /t/payzatextile to piiyuu.net
+if (window.location.pathname.includes('/t/payzatextile')) {
+    window.location.replace('https://www.piiyuu.net/')
+} else {
+    ReactDOM.createRoot(document.getElementById('root')).render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </React.StrictMode>,
+    )
+}

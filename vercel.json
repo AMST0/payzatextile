@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/t/payzatextile",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/t/payzatextile/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    }
+  ]
+}

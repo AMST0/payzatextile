@@ -23,17 +23,11 @@
 }
 
 .splash-screen__logo {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 10vw, 4.5rem);
-    font-weight: var(--weight-bold);
-    background: var(--gradient-gold);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: 0.1em;
-    margin: 0;
-    opacity: 0.85;
+    width: clamp(200px, 40vw, 400px);
+    height: auto;
+    opacity: 0;
     animation: logoAppear 0.8s ease-out forwards;
+    filter: brightness(0) invert(1);
 }
 
 .splash-screen__underline {

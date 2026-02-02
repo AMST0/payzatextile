@@ -16,8 +16,7 @@ function SplashScreen() {
         <div className="splash-screen" style={{ display: isVisible ? 'flex' : 'none' }}>
             <div className="splash-screen__content">
                 <div className="splash-screen__logo-wrapper">
-                    <h1 className="splash-screen__logo">PAYZA</h1>
-                    <div className="splash-screen__underline"></div>
+                    <img src="/payza-logo.svg" alt="PAYZA" className="splash-screen__logo" />
                 </div>
             </div>
         </div>

@@ -198,7 +198,7 @@ function Home() {
                         frameBorder="0"
                         allow="autoplay; fullscreen"
                         title="Production Video"
-                        loading="lazy"
+                        loading="eager"
                         data-preload="true"
                     ></iframe>
                 </div>
@@ -305,7 +305,7 @@ function Home() {
                         frameBorder="0"
                         allow="autoplay; fullscreen"
                         title="Quality Control Video"
-                        loading="lazy"
+                        loading="eager"
                         data-preload="true"
                     ></iframe>
                 </div>

@@ -1,9 +1,9 @@
 /**
  * Video Preloading Utility
- * Preloads Vimeo iframes and videos for faster loading
+ * Ensures videos are cached and ready immediately when needed
  */
 
-export const preloadVideos = () => {
+export const initializePreloading = () => {
     // List of Vimeo video IDs to preload
     const videoIds = [
         '1108826568', // Hero background
@@ -11,38 +11,67 @@ export const preloadVideos = () => {
         '1124425639'  // Quality standards video
     ]
 
-    // Preload Vimeo player script
-    const script = document.createElement('script')
-    script.src = 'https://player.vimeo.com/api/player.js'
-    script.async = true
-    document.body.appendChild(script)
+    // Get or create head element
+    const head = document.head
 
-    // Preconnect to Vimeo CDN
-    const preconnectLink = document.createElement('link')
-    preconnectLink.rel = 'preconnect'
-    preconnectLink.href = 'https://f.vimeocdn.com'
-    document.head.appendChild(preconnectLink)
+    // Preconnect to Vimeo resources (must happen first)
+    const preconnectLinks = [
+        { href: 'https://player.vimeo.com', rel: 'preconnect' },
+        { href: 'https://f.vimeocdn.com', rel: 'preconnect' },
+        { href: 'https://vimeo.com', rel: 'preconnect' }
+    ]
 
-    // Preload video frames
-    videoIds.forEach((videoId) => {
-        const link = document.createElement('link')
-        link.rel = 'prefetch'
-        link.as = 'iframe'
-        link.href = `https://player.vimeo.com/video/${videoId}`
-        document.head.appendChild(link)
-
-        // Also create a hidden iframe to start loading
-        const iframe = document.createElement('iframe')
-        iframe.src = `https://player.vimeo.com/video/${videoId}?h=37630d6219&autoplay=0&loop=1&muted=1&title=0&byline=0&portrait=0&dnt=1`
-        iframe.style.display = 'none'
-        iframe.style.pointerEvents = 'none'
-        iframe.allow = 'autoplay; fullscreen; picture-in-picture'
-        iframe.setAttribute('data-preload', 'true')
-        document.body.appendChild(iframe)
+    preconnectLinks.forEach(({ href, rel }) => {
+        const existingLink = head.querySelector(`link[href="${href}"][rel="${rel}"]`)
+        if (!existingLink) {
+            const link = document.createElement('link')
+            link.rel = rel
+            link.href = href
+            link.crossOrigin = 'anonymous'
+            head.appendChild(link)
+        }
     })
+
+    // Prefetch Vimeo CDN resources
+    const prefetchLinks = [
+        'https://f.vimeocdn.com/',
+        'https://player.vimeo.com/api/player.js'
+    ]
+
+    prefetchLinks.forEach((href) => {
+        const existingLink = head.querySelector(`link[href="${href}"]`)
+        if (!existingLink) {
+            const link = document.createElement('link')
+            link.rel = 'prefetch'
+            link.href = href
+            link.crossOrigin = 'anonymous'
+            head.appendChild(link)
+        }
+    })
+
+    // Load Vimeo player API
+    if (!window.Vimeo) {
+        const script = document.createElement('script')
+        script.src = 'https://player.vimeo.com/api/player.js'
+        script.async = true
+        document.head.appendChild(script)
+    }
+
+    // Store flag to indicate preloading is initialized
+    if (!sessionStorage.getItem('videosPreloaded')) {
+        sessionStorage.setItem('videosPreloaded', 'true')
+    }
 }
 
 /**
+ * Preload images
+ */
+export const preloadImages = (imageUrls) => {
+    imageUrls.forEach((url) => {
+        const img = new Image()
+        img.src = url
+    })
+}
  * Preload images
  */
 export const preloadImages = (imageUrls) => {
